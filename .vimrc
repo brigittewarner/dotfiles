@@ -47,5 +47,24 @@ set listchars=eol:¬,tab:>-,trail:~,extends:>,precedes:<
 set nofoldenable
 set nowrap
 set number
-set scrolloff=999
+set scrolloff=999 " Hack to set cursor to middle of the screen
+
+" Remap Esc
+imap jk <Esc>
+
+"insert and remove comments in visual and normal mode
+vmap <Space>cc :s/^/#/g<CR>:let @/ = ""<CR>
+map  <Space>cc :s/^/#/g<CR>:let @/ = ""<CR>
+vmap <Space>cu :s/^#//g<CR>:let @/ = ""<CR>
+map  <Space>cu :s/^#//g<CR>:let @/ = ""<CR>
+
+" Tab correctly
+set tabstop=2
+
+" Delete character should not squash paste buffer
+nnoremap <silent> x "xx
+vnoremap <silent> x "xx
+
+" Automatically resize panes when the terminal is resized
+autocmd VimResized * :wincmd =
 
