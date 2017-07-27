@@ -20,6 +20,7 @@ Plug 'elixir-lang/vim-elixir'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'kchmck/vim-coffee-script'
 Plug 'tpope/vim-endwise'
+Plug 'junegunn/vim-easy-align'
 
 call plug#end()
 
@@ -42,8 +43,11 @@ set foldmethod=indent
 set hlsearch
 set incsearch
 set lazyredraw
-set list
-set listchars=eol:¬,tab:>-,trail:~,extends:>,precedes:<
+set noswapfile
+"This was causing issues with pasting into sql so it's probably more trouble
+"than its worth
+"set list
+"set listchars=eol:¬,tab:>-,trail:~,extends:>,precedes:<
 set nofoldenable
 set nowrap
 set number
@@ -58,6 +62,9 @@ map  <Space>cc :s/^/#/g<CR>:let @/ = ""<CR>
 vmap <Space>cu :s/^#//g<CR>:let @/ = ""<CR>
 map  <Space>cu :s/^#//g<CR>:let @/ = ""<CR>
 
+" insert pry
+:ia pry require IEx; IEx.pry
+
 " Tab correctly
 set tabstop=2
 
@@ -68,3 +75,8 @@ vnoremap <silent> x "xx
 " Automatically resize panes when the terminal is resized
 autocmd VimResized * :wincmd =
 
+" Start interactive EasyAlign in visual mode
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object
+nmap ga <Plug>(EasyAlign)
