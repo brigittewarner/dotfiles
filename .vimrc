@@ -5,7 +5,7 @@ call plug#begin('~/.vim/bundle/plug')
 
 Plug 'scrooloose/nerdcommenter'
 
-" Syntax Highlighting + Other Niceties 
+" Syntax Highlighting + Other Niceties
 
 Plug 'flazz/vim-colorschemes'
 Plug 'tpope/vim-rails'
@@ -21,6 +21,7 @@ Plug 'ekalinin/Dockerfile.vim'
 Plug 'kchmck/vim-coffee-script'
 Plug 'tpope/vim-endwise'
 Plug 'junegunn/vim-easy-align'
+Plug 'kien/ctrlp.vim'
 
 call plug#end()
 
@@ -52,6 +53,12 @@ set nofoldenable
 set nowrap
 set number
 set scrolloff=999 " Hack to set cursor to middle of the screen
+
+"ctrlp plugin settings
+set wildignore+=*\vendor\**
+set wildignore+=*\_build\**
+set wildignore+=*\deps\**
+map <C-d> :!echo "$(curl -s https://icanhazdadjoke.com )"
 
 " Remap Esc
 imap jk <Esc>
