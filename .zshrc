@@ -10,6 +10,9 @@ ZSH_THEME="miloshadzic"
 # Use 256 colors
 export TERM="xterm-256color"
 
+# Set default editor
+export VISUAL=vim
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
